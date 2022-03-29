@@ -1,0 +1,12 @@
+E:\Project\3106\3106\bin\Debug\3106.exe.config
+E:\Project\3106\3106\bin\Debug\3106.exe
+E:\Project\3106\3106\bin\Debug\3106.pdb
+E:\Project\3106\3106\obj\Debug\3106.csproj.AssemblyReference.cache
+E:\Project\3106\3106\obj\Debug\3106.csproj.SuggestedBindingRedirects.cache
+E:\Project\3106\3106\obj\Debug\_3106.Form1.resources
+E:\Project\3106\3106\obj\Debug\_3106.Properties.Resources.resources
+E:\Project\3106\3106\obj\Debug\3106.csproj.GenerateResource.cache
+E:\Project\3106\3106\obj\Debug\3106.csproj.CoreCompileInputs.cache
+E:\Project\3106\3106\obj\Debug\3106.exe
+E:\Project\3106\3106\obj\Debug\3106.pdb
+E:\Project\3106\3106\obj\Debug\_3106.Form2.resources
