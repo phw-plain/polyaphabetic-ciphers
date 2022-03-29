@@ -10,3 +10,16 @@ E:\Project\3106\3106\obj\Debug\3106.csproj.CoreCompileInputs.cache
 E:\Project\3106\3106\obj\Debug\3106.exe
 E:\Project\3106\3106\obj\Debug\3106.pdb
 E:\Project\3106\3106\obj\Debug\_3106.Form2.resources
+C:\github\polyaphabetic-ciphers\3106\bin\Debug\3106.exe.config
+C:\github\polyaphabetic-ciphers\3106\bin\Debug\3106.exe
+C:\github\polyaphabetic-ciphers\3106\bin\Debug\3106.pdb
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.AssemblyReference.cache
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.SuggestedBindingRedirects.cache
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.main.resources
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.input.resources
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.output.resources
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.Properties.Resources.resources
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.GenerateResource.cache
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.CoreCompileInputs.cache
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.exe
+C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.pdb

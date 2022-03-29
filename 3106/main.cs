@@ -15,9 +15,11 @@ namespace _3106
         public main()
         {
             InitializeComponent();
-            this.label1.Text = "암호화 하기";
-            label1.Left = (this.ClientSize.Width - label1.Width) / 2;
-            label1.Top = (this.ClientSize.Height - label1.Height) / 2;
+            title.Left = (this.ClientSize.Width - title.Width) / 2;
+            title.Top = ((this.ClientSize.Height - title.Height) / 2)-50;
+
+            button.Left = (this.ClientSize.Width - button.Width) / 2;
+            button.Top = ((this.ClientSize.Height - button.Height) / 2)+50;
 
         }
 
