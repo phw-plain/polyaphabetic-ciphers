@@ -27,6 +27,9 @@ namespace _3106
             start.Visible = false;
             input.Visible = true;
             output.Visible = false;
+
+            in_textBox1.Text = "";
+            in_textBox2.Text = "";
         }
         private void in_button_Click(object sender, EventArgs e)
         {
@@ -108,11 +111,10 @@ namespace _3106
 
             // 암호화 된 값 불러오기
 
-            //out_cipher.Text = ciphertext;
-            //out_plain.Text = plaintext;
+            out_cipher.Text = cipher.ci.encryption;
+            out_plain.Text = cipher.ci.decryption;
 
             //label1.Text = ?; ~ label25.Text = ?;
-
         }
 
         private void label1_Click(object sender, EventArgs e) {}
