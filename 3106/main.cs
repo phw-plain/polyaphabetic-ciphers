@@ -111,7 +111,7 @@ namespace _3106
 
             // 암호화 된 값 불러오기
 
-            out_cipher.Text = cipher.ci.encryption;
+            out_cipher.Text = cipher.ci.encryption_trim;
             out_plain.Text = cipher.ci.decryption;
 
             //label1.Text = ?; ~ label25.Text = ?;

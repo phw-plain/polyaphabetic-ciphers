@@ -9,16 +9,16 @@ namespace _3106.Resources
         public static cipher ci = new cipher();
 
         public static char[,] alphabetBoard = new char[5, 5];
-	    public static bool oddFlag = false; //글자수 출력
+        public static bool oddFlag = false; //글자수 출력
         public static String zCheck = "";
 
+        public String encryption_trim;
         public String encryption;
         public String decryption;
 
         public void getCipher(String ciphertext, String plaintext)
         {
             String blankCheck = "";
-            int blankCheckCount = 0;
 
             setBoard(ciphertext);                          //암호화에 쓰일 암호판 세팅
 
@@ -26,7 +26,8 @@ namespace _3106.Resources
             {
                 if (plaintext[i] == ' ') //공백제거
                 {
-                plaintext = plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length);
+                    plaintext = plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
+                    Console.WriteLine(plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1)));
                     blankCheck += 10;
                 }
                 else
@@ -35,7 +36,7 @@ namespace _3106.Resources
                 }
                 if (plaintext[i] == 'z') //z를 q로 바꿔줘서 처리함.
                 {
-                    plaintext = plaintext.Substring(0, i) + 'q' + plaintext.Substring(i + 1, plaintext.Length);
+                    plaintext = plaintext.Substring(0, i) + 'q' + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
                     zCheck += 1;
                 }
                 else
@@ -46,10 +47,13 @@ namespace _3106.Resources
 
             encryption = strEncryption(ciphertext, plaintext);
 
+            Console.WriteLine("암호화된 문자열 : " + encryption);
+            encryption_trim = encryption;
+
             for (int i = 0; i < encryption.Length; i++)
             {
                 if (encryption[i] == ' ') //공백제거
-                    encryption = encryption.Substring(0, i) + encryption.Substring(i + 1, encryption.Length);
+                    encryption = encryption.Substring(0, i) + encryption.Substring(i + 1, encryption.Length - (i + 1));
             }
 
             decryption = strDecryption(ciphertext, encryption, zCheck);
@@ -58,10 +62,10 @@ namespace _3106.Resources
             {
                 if (blankCheck[i] == '1')
                 {
-                    decryption = decryption.Substring(0, i) + " " + decryption.Substring(i, decryption.Length);
+                    decryption = decryption.Substring(0, i) + " " + decryption.Substring(i, decryption.Length - i);
                 }
             }
-
+            Console.WriteLine("복호화된 문자열 : " + decryption);
         }
 
         private static String strDecryption(String key, String str, String zCheck)
@@ -70,9 +74,6 @@ namespace _3106.Resources
             List<char[]> decPlayFair = new List<char[]>(); //바꾼 후의 쌍자암호 저장할 곳
             int x1 = 0, x2 = 0, y1 = 0, y2 = 0; //쌍자 암호 두 글자의 각각의 행,열 값
             String decStr = "";
-
-            int lengthOddFlag = 1;
-
 
             for (int i = 0; i < str.Length; i += 2)
             {
@@ -87,9 +88,9 @@ namespace _3106.Resources
             {
 
                 char[] tmpArr = new char[2];
-                for (int j = 0; j < alphabetBoard.Rank; j++)
+                for (int j = 0; j < alphabetBoard.GetLength(0); j++)
                 {
-                    for (int k = 0; k < alphabetBoard.GetLength(j); k++)
+                    for (int k = 0; k < alphabetBoard.GetLength(0); k++)
                     {
                         if (alphabetBoard[j, k] == playFair[i][0])
                         {
@@ -171,8 +172,6 @@ namespace _3106.Resources
             int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
             String encStr = "";
 
-
-
             for (int i = 0; i < str.Length; i += 2) // arraylist 세팅
             {
                 char[] tmpArr = new char[2];
@@ -204,11 +203,10 @@ namespace _3106.Resources
 
             for (int i = 0; i < playFair.Count; i++)
             {
-
                 char[] tmpArr = new char[2];
-                for (int j = 0; j < alphabetBoard.Rank; j++) //쌍자암호의 각각 위치체크
+                for (int j = 0; j < alphabetBoard.GetLength(0); j++) //쌍자암호의 각각 위치체크
                 {
-                    for (int k = 0; k < alphabetBoard.GetLength(j); k++)
+                    for (int k = 0; k < alphabetBoard.GetLength(0); k++)
                     {
                         if (alphabetBoard[j, k] == playFair[i][0])
                         {
@@ -222,8 +220,6 @@ namespace _3106.Resources
                         }
                     }
                 }
-
-
                 if (x1 == x2) //행이 같은경우
                 {
                     tmpArr[0] = alphabetBoard[x1, (y1 + 1) % 5];
@@ -248,8 +244,6 @@ namespace _3106.Resources
             {
                 encStr += encPlayFair[i][0] + "" + encPlayFair[i][1] + " ";
             }
-
-
             return encStr;
         }
 
@@ -277,20 +271,21 @@ namespace _3106.Resources
                 duplicationFlag = false;
             }
             //배열에 대입
-            for (int i = 0; i < alphabetBoard.Rank; i++)
+            for (int i = 0; i < alphabetBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < alphabetBoard.GetLength(j); j++)
+                for (int j = 0; j < alphabetBoard.GetLength(0); j++)
                 {
                     alphabetBoard[i, j] = keyForSet[keyLengthCount++];
                 }
             }
-            //배열에 대입
-            for (int i = 0; i < alphabetBoard.Rank; i++)
+            // 출력용
+            for (int i = 0; i < alphabetBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < alphabetBoard.GetLength(j); j++)
+                for (int j = 0; j < alphabetBoard.GetLength(0); j++)
                 {
-                    Console.WriteLine(alphabetBoard[i, j] + "-");
+                    Console.Write(alphabetBoard[i, j] + "-");
                 }
+                Console.WriteLine();
             }
         }
     }
