@@ -115,6 +115,36 @@ namespace _3106
             out_plain.Text = cipher.ci.decryption;
 
             //label1.Text = ?; ~ label25.Text = ?;
+            label1.Text = cipher.alphabetBoard[0, 0].ToString();
+            label2.Text = cipher.alphabetBoard[0, 1].ToString();
+            label3.Text = cipher.alphabetBoard[0, 2].ToString();
+            label4.Text = cipher.alphabetBoard[0, 3].ToString();
+            label5.Text = cipher.alphabetBoard[0, 4].ToString();
+
+            label6.Text = cipher.alphabetBoard[1, 0].ToString();
+            label7.Text = cipher.alphabetBoard[1, 1].ToString();
+            label8.Text = cipher.alphabetBoard[1, 2].ToString();
+            label9.Text = cipher.alphabetBoard[1, 3].ToString();
+            label10.Text = cipher.alphabetBoard[1, 4].ToString();
+
+            label11.Text = cipher.alphabetBoard[2, 0].ToString();
+            label12.Text = cipher.alphabetBoard[2, 1].ToString();
+            label13.Text = cipher.alphabetBoard[2, 2].ToString();
+            label14.Text = cipher.alphabetBoard[2, 3].ToString();
+            label15.Text = cipher.alphabetBoard[2, 4].ToString();
+
+            label16.Text = cipher.alphabetBoard[3, 0].ToString();
+            label17.Text = cipher.alphabetBoard[3, 1].ToString();
+            label18.Text = cipher.alphabetBoard[3, 2].ToString();
+            label19.Text = cipher.alphabetBoard[3, 3].ToString();
+            label20.Text = cipher.alphabetBoard[3, 4].ToString();
+
+            label21.Text = cipher.alphabetBoard[4, 0].ToString();
+            label22.Text = cipher.alphabetBoard[4, 1].ToString();
+            label23.Text = cipher.alphabetBoard[4, 2].ToString();
+            label24.Text = cipher.alphabetBoard[4, 3].ToString();
+            label25.Text = cipher.alphabetBoard[4, 4].ToString();
+
         }
 
         private void label1_Click(object sender, EventArgs e) {}
@@ -130,6 +160,14 @@ namespace _3106
 
         }
 
+        private void label25_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

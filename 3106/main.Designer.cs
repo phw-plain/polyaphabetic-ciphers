@@ -117,7 +117,7 @@
             // 
             // input
             // 
-            this.input.BackColor = System.Drawing.Color.IndianRed;
+            this.input.BackColor = System.Drawing.Color.White;
             this.input.Controls.Add(this.in_button);
             this.input.Controls.Add(this.in_label2);
             this.input.Controls.Add(this.in_textBox2);
@@ -189,7 +189,7 @@
             // 
             // output
             // 
-            this.output.BackColor = System.Drawing.Color.Cornsilk;
+            this.output.BackColor = System.Drawing.Color.White;
             this.output.Controls.Add(this.out_plain);
             this.output.Controls.Add(this.out_label2);
             this.output.Controls.Add(this.out_cipher);
@@ -314,6 +314,7 @@
             this.label25.TabIndex = 24;
             this.label25.Text = "A";
             this.label25.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label24
             // 
@@ -479,6 +480,7 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "A";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
