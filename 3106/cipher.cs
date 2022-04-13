@@ -16,6 +16,8 @@ namespace _3106.Resources
         public String encryption;
         public String decryption;
 
+        public static string[, ] alpha = new string[5, 5];
+
         public void getCipher(String ciphertext, String plaintext)
         {
             String blankCheck = "";
@@ -286,6 +288,18 @@ namespace _3106.Resources
                     Console.Write(alphabetBoard[i, j] + "-");
                 }
                 Console.WriteLine();
+            }
+            for (int i = 0; i < alpha.GetLength(0); i++)
+            {
+                for (int j = 0; j < alpha.GetLength(0); j++)
+                {
+                    alpha[i, j] = alphabetBoard[i, j].ToString();
+                    if (alphabetBoard[i, j] == 'q')
+                    {
+                        alpha[i, j] += "/z";
+
+                    }
+                }
             }
         }
     }

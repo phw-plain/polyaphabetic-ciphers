@@ -16,7 +16,6 @@ C:\github\polyaphabetic-ciphers\3106\bin\Debug\3106.pdb
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.AssemblyReference.cache
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.SuggestedBindingRedirects.cache
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.main.resources
-C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.output.resources
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\_3106.Properties.Resources.resources
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.GenerateResource.cache
 C:\github\polyaphabetic-ciphers\3106\obj\Debug\3106.csproj.CoreCompileInputs.cache
