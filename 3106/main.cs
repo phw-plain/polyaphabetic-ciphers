@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace _3106
 {
@@ -33,13 +34,24 @@ namespace _3106
         }
         private void in_button_Click(object sender, EventArgs e)
         {
+            bool result1 = Regex.IsMatch(in_textBox1.Text, @"^[a-zA-Z]+$");
+            bool result2 = Regex.IsMatch(in_textBox1.Text, @"^[a-zA-Z]+$");
+
             if (in_textBox1.Text == "")
             {
                 MessageBox.Show("암호문이 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            } else if (in_textBox2.Text == "")
+            }
+            else if (!result1)
+            {
+                MessageBox.Show("영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (in_textBox2.Text == "")
             {
                 MessageBox.Show("복호문이 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!result2)
+            {
+                MessageBox.Show("영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -47,8 +59,24 @@ namespace _3106
                 start.Visible = false;
                 input.Visible = false;
                 output.Visible = true;
+
+                // 암호화에 필요한 정보 저장하기
+                String ciphertext = in_textBox1.Text;
+                String plaintext = in_textBox2.Text;
+
+                ciphertext = ciphertext.ToLower();
+                plaintext = plaintext.ToLower();
+
+                // 암호화 하기
+                cipher.ci.getCipher(ciphertext, plaintext);
+
+                // 암호화 된 값 불러오기
+                out_cipher.Text = cipher.ci.encryption_trim;
+                out_plain.Text = cipher.ci.decryption;
             }
+            
         }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             // 화면 전환
@@ -103,46 +131,37 @@ namespace _3106
         private void output_Paint(object sender, PaintEventArgs e)
         {
             // GUI setting
-            subtext.Left = ((this.ClientSize.Width - title.Width) / 2) - 80;
+            subtext.Left = ((this.ClientSize.Width - title.Width) / 2) - 50;
             subtext.Top = ((this.ClientSize.Height - title.Height) / 2) - 140;
 
-            tableLayoutPanel.Left = ((this.ClientSize.Width - title.Width) / 2) - 80;
+            tableLayoutPanel.Left = ((this.ClientSize.Width - title.Width) / 2) - 50;
             tableLayoutPanel.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
 
-            out_label1.Left = ((this.ClientSize.Width - title.Width) / 2) + 300;
-            out_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 30;
+            out_label1.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            out_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
 
-            out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 380;
-            out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 30;
+            out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
+            out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
 
-            out_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 300;
-            out_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 30;
+            out_cipher.MaximumSize = new Size(170, 0);
+            out_cipher.AutoSize = true;
 
-            out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 380;
-            out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 30;
+            out_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            out_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 20;
 
-            out_button.Left = ((this.ClientSize.Width - title.Width) / 2) + 330;
+            out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
+            out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 20;
+
+            out_plain.MaximumSize = new Size(170, 0);
+            out_plain.AutoSize = true;
+
+            out_button.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
             out_button.Top = ((this.ClientSize.Height - title.Height) / 2) + 100;
 
             //버튼 테두리 없애기
             out_button.TabStop = false;
             out_button.FlatStyle = FlatStyle.Flat;
             out_button.FlatAppearance.BorderSize = 0;
-
-            // 암호화에 필요한 정보 저장하기
-            String ciphertext = in_textBox1.Text;
-            String plaintext = in_textBox2.Text;
-
-            ciphertext = ciphertext.ToLower();
-            plaintext = plaintext.ToLower();
-
-            // 암호화 하기
-            cipher.ci.getCipher(ciphertext, plaintext);
-
-            // 암호화 된 값 불러오기
-
-            out_cipher.Text = cipher.ci.encryption_trim;
-            out_plain.Text = cipher.ci.decryption;
 
             //label1.Text = ?; ~ label25.Text = ?;
             label1.Text = cipher.alpha[0, 0];
@@ -213,6 +232,11 @@ namespace _3106
         }
 
         private void in_label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void out_plain_Click(object sender, EventArgs e)
         {
 
         }

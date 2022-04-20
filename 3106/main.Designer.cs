@@ -71,8 +71,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.start = new System.Windows.Forms.Panel();
-            this.button = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.button = new System.Windows.Forms.Button();
             this.input.SuspendLayout();
             this.output.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
@@ -161,10 +161,10 @@
             // 
             this.in_title.AutoSize = true;
             this.in_title.BackColor = System.Drawing.Color.Transparent;
-            this.in_title.Font = new System.Drawing.Font("둥근모꼴", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.in_title.Font = new System.Drawing.Font("HY견고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.in_title.Location = new System.Drawing.Point(235, 106);
             this.in_title.Name = "in_title";
-            this.in_title.Size = new System.Drawing.Size(450, 41);
+            this.in_title.Size = new System.Drawing.Size(428, 40);
             this.in_title.TabIndex = 10;
             this.in_title.Text = "다중 문자 치환 암호화";
             this.in_title.Click += new System.EventHandler(this.in_title_Click);
@@ -193,6 +193,7 @@
             this.out_plain.Size = new System.Drawing.Size(55, 15);
             this.out_plain.TabIndex = 6;
             this.out_plain.Text = "ABCDE";
+            this.out_plain.Click += new System.EventHandler(this.out_plain_Click);
             // 
             // out_label2
             // 
@@ -582,6 +583,21 @@
             this.start.TabIndex = 2;
             this.start.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // title
+            // 
+            this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.title.AutoSize = true;
+            this.title.BackColor = System.Drawing.Color.Transparent;
+            this.title.CausesValidation = false;
+            this.title.Font = new System.Drawing.Font("HY견고딕", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.title.ForeColor = System.Drawing.Color.Snow;
+            this.title.Location = new System.Drawing.Point(132, 165);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(628, 60);
+            this.title.TabIndex = 1;
+            this.title.Text = "다중 문자 치환 암호화";
+            this.title.Click += new System.EventHandler(this.label1_Click);
+            // 
             // button
             // 
             this.button.BackColor = System.Drawing.Color.Transparent;
@@ -597,21 +613,6 @@
             this.button.TabIndex = 0;
             this.button.UseVisualStyleBackColor = false;
             this.button.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // title
-            // 
-            this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.title.AutoSize = true;
-            this.title.BackColor = System.Drawing.Color.Transparent;
-            this.title.CausesValidation = false;
-            this.title.Font = new System.Drawing.Font("둥근모꼴", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.title.ForeColor = System.Drawing.Color.Snow;
-            this.title.Location = new System.Drawing.Point(126, 167);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(658, 60);
-            this.title.TabIndex = 1;
-            this.title.Text = "다중 문자 치환 암호화";
-            this.title.Click += new System.EventHandler(this.label1_Click);
             // 
             // main
             // 
@@ -677,13 +678,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label subtext;
-        private System.Windows.Forms.Label out_plain;
         private System.Windows.Forms.Label out_label2;
         private System.Windows.Forms.Label out_cipher;
         private System.Windows.Forms.Label out_label1;
         private System.Windows.Forms.Button home;
         public System.Windows.Forms.Button out_button;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label out_plain;
     }
 }
 
