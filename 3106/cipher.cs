@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using System.Windows.Forms;
+
 namespace _3106.Resources
 {
     internal class cipher
@@ -15,13 +17,14 @@ namespace _3106.Resources
         public String encryption_trim;
         public String encryption;
         public String decryption;
+        public String blankCheck;
 
         public static string[, ] alpha = new string[5, 5];
 
         public void Encryption(String ciphertext, String plaintext)
         {
             zCheck = "";
-            String blankCheck = "";
+            blankCheck = "";
 
             setBoard(ciphertext);                          //암호화에 쓰일 암호판 세팅
 
@@ -65,38 +68,9 @@ namespace _3106.Resources
 
         public void Decryption(String ciphertext, String encryptiontext)
         {
-            // zCheck 찾아오기 (파일입출력)
-            zCheck = "";
-            String blankCheck = "";
-
             setBoard(ciphertext);                          //암호화에 쓰일 암호판 세팅
 
-            /* 
-            for (int i = 0; i < plaintext.Length; i++)
-            {
-                if (plaintext[i] == ' ') //공백제거
-                {
-                    plaintext = plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
-                    Console.WriteLine(plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1)));
-                    blankCheck += 10;
-                }
-                else
-                {
-                    blankCheck += 0;
-                }
-                if (plaintext[i] == 'z') //z를 q로 바꿔줘서 처리함.
-                {
-                    plaintext = plaintext.Substring(0, i) + 'q' + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
-                    zCheck += 1;
-                }
-                else
-                {
-                    zCheck += 0;
-                }
-            }
-           */
-
-            for (int i = 0; i < encryption.Length; i++)
+            for (int i = 0; i < encryptiontext.Length; i++)
             {
                 if (encryptiontext[i] == ' ') //공백제거
                     encryptiontext = encryptiontext.Substring(0, i) + encryptiontext.Substring(i + 1, encryptiontext.Length - (i + 1));
@@ -104,7 +78,7 @@ namespace _3106.Resources
 
             decryption = strDecryption(ciphertext, encryptiontext, zCheck);
 
-            for (int i = 0; i < decryption.Length; i++)
+            for (int i = 0; i < blankCheck.Length; i++)
             {
                 if (blankCheck[i] == '1')
                 {
@@ -130,7 +104,6 @@ namespace _3106.Resources
                 tmpArr[1] = str[i + 1];
                 playFair.Add(tmpArr);
             }
-
 
             for (int i = 0; i < playFair.Count; i++)
             {
@@ -236,7 +209,7 @@ namespace _3106.Resources
                         tmpArr[1] = str[i + 1];
                     }
                 }
-                catch (IndexOutOfRangeException e)
+                catch (IndexOutOfRangeException)
                 {
                     tmpArr[1] = 'x';
                     oddFlag = true;
@@ -292,6 +265,7 @@ namespace _3106.Resources
             {
                 encStr += encPlayFair[i][0] + "" + encPlayFair[i][1] + " ";
             }
+
             return encStr;
         }
 
@@ -348,5 +322,6 @@ namespace _3106.Resources
                 }
             }
         }
+
     }
 }

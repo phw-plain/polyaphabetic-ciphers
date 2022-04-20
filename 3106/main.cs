@@ -90,7 +90,7 @@ namespace _3106
 
                 // ZCheck 문자열 저장하기 (암호문 zCheck)
                 StreamWriter sw = File.AppendText("encryption.txt");
-                sw.WriteLine(cipher.ci.encryption + " " + cipher.ci.zCheck);
+                sw.WriteLine(cipher.ci.encryption + " " + cipher.ci.zCheck + "/" + cipher.ci.blankCheck + "-" + ((cipher.oddFlag) ? 1:0));
                 sw.Close();
 
                 // 암호화 된 값 불러오기
@@ -121,6 +121,10 @@ namespace _3106
             {
                 MessageBox.Show("영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (isfind(de_in_textBox2.Text))
+            {
+                MessageBox.Show("데이터가 없는 암호문 입니다.\n암호화를 한번 이상 진행한 암호키, 암호문만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 // 화면 전환
@@ -129,14 +133,12 @@ namespace _3106
 
                 // 복호화에 필요한 정보 저장하기
                 String ciphertext = de_in_textBox1.Text;    // 암호키
-                String encryptiontext = de_in_textBox2.Text;     // 평문
+                String encryptiontext = de_in_textBox2.Text;     // 암호문
 
                 ciphertext = ciphertext.ToLower();
                 encryptiontext = encryptiontext.ToLower();
 
-                // ZCheck 문자열 가져오기
-
-
+                
                 // 암호화 하기
                 cipher.ci.Decryption(ciphertext, encryptiontext);
 
@@ -146,6 +148,31 @@ namespace _3106
             }
         }
         
+        private bool isfind(String str)
+        {
+            // ZCheck 문자열 가져오기
+            string[] textValue = System.IO.File.ReadAllLines("encryption.txt");
+            int i;
+            if (textValue.Length > 0)
+            {
+                for (i = 0; i < textValue.Length; i++)
+                {
+                    if (textValue[i].IndexOf(str) != -1)
+                    {
+                        int a = textValue[i].IndexOf(" ");
+                        int b = textValue[i].IndexOf("/");
+                        int c = textValue[i].IndexOf("-");
+                        cipher.ci.zCheck = textValue[i].Substring(a, Math.Abs(a - b));
+                        cipher.ci.blankCheck = textValue[i].Substring(b+1, Math.Abs((b + 1)-c));
+                        cipher.oddFlag = (textValue[i].Substring(c + 1)  == "1") ? true : false; 
+                        
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)  // 메인 화면
         {
             // GUI setting
@@ -300,18 +327,18 @@ namespace _3106
             de_out_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 185;
             de_out_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 140;
 
-            de_out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 120;
+            de_out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
             de_out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
-            de_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 270;
+            de_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 240;
             de_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
-            de_cipher.MaximumSize = new Size(170, 0);
+            de_cipher.MaximumSize = new Size(200, 0);
             de_cipher.AutoSize = true;
 
-            de_out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 120;
+            de_out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
             de_out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
-            de_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 270;
+            de_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 240;
             de_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
-            de_plain.MaximumSize = new Size(170, 0);
+            de_plain.MaximumSize = new Size(200, 0);
             de_plain.AutoSize = true;
 
 
