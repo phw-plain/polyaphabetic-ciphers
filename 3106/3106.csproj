@@ -92,8 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
-    <None Include="Resources\btn1.png" />
     <None Include="Resources\btn2.png" />
+    <None Include="Resources\btnStart.png" />
+    <None Include="Resources\btn3.png" />
+    <None Include="Resources\btn1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

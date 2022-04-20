@@ -10,7 +10,7 @@ namespace _3106.Resources
 
         public static char[,] alphabetBoard = new char[5, 5];
         public static bool oddFlag = false; //글자수 출력
-        public static String zCheck = "";
+        public String zCheck;
 
         public String encryption_trim;
         public String encryption;
@@ -18,8 +18,9 @@ namespace _3106.Resources
 
         public static string[, ] alpha = new string[5, 5];
 
-        public void getCipher(String ciphertext, String plaintext)
+        public void Encryption(String ciphertext, String plaintext)
         {
+            zCheck = "";
             String blankCheck = "";
 
             setBoard(ciphertext);                          //암호화에 쓰일 암호판 세팅
@@ -47,9 +48,11 @@ namespace _3106.Resources
                 }
             }
 
+            // 암호화
             encryption = strEncryption(ciphertext, plaintext);
 
-            Console.WriteLine("암호화된 문자열 : " + encryption);
+            // Console.WriteLine("암호화된 문자열 : " + encryption);
+
             encryption_trim = encryption;
 
             for (int i = 0; i < encryption.Length; i++)
@@ -58,7 +61,48 @@ namespace _3106.Resources
                     encryption = encryption.Substring(0, i) + encryption.Substring(i + 1, encryption.Length - (i + 1));
             }
 
-            decryption = strDecryption(ciphertext, encryption, zCheck);
+        }
+
+        public void Decryption(String ciphertext, String encryptiontext)
+        {
+            // zCheck 찾아오기 (파일입출력)
+            zCheck = "";
+            String blankCheck = "";
+
+            setBoard(ciphertext);                          //암호화에 쓰일 암호판 세팅
+
+            /* 
+            for (int i = 0; i < plaintext.Length; i++)
+            {
+                if (plaintext[i] == ' ') //공백제거
+                {
+                    plaintext = plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
+                    Console.WriteLine(plaintext.Substring(0, i) + plaintext.Substring(i + 1, plaintext.Length - (i + 1)));
+                    blankCheck += 10;
+                }
+                else
+                {
+                    blankCheck += 0;
+                }
+                if (plaintext[i] == 'z') //z를 q로 바꿔줘서 처리함.
+                {
+                    plaintext = plaintext.Substring(0, i) + 'q' + plaintext.Substring(i + 1, plaintext.Length - (i + 1));
+                    zCheck += 1;
+                }
+                else
+                {
+                    zCheck += 0;
+                }
+            }
+           */
+
+            for (int i = 0; i < encryption.Length; i++)
+            {
+                if (encryptiontext[i] == ' ') //공백제거
+                    encryptiontext = encryptiontext.Substring(0, i) + encryptiontext.Substring(i + 1, encryptiontext.Length - (i + 1));
+            }
+
+            decryption = strDecryption(ciphertext, encryptiontext, zCheck);
 
             for (int i = 0; i < decryption.Length; i++)
             {
@@ -67,7 +111,9 @@ namespace _3106.Resources
                     decryption = decryption.Substring(0, i) + " " + decryption.Substring(i, decryption.Length - i);
                 }
             }
+
             Console.WriteLine("복호화된 문자열 : " + decryption);
+
         }
 
         private static String strDecryption(String key, String str, String zCheck)

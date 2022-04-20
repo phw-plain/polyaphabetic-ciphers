@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace _3106
 {
@@ -22,30 +23,97 @@ namespace _3106
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        // 암호화 하기 버튼
+        private void en_btn_Click(object sender, EventArgs e)
         {
             // 화면 전환
             start.Visible = false;
-            input.Visible = true;
-            output.Visible = false;
+            en_input.Visible = true;
+            de_input.Visible = false;
+            en_output.Visible = false;
+            de_output.Visible = false;
 
-            in_textBox1.Text = "";
-            in_textBox2.Text = "";
+            en_in_textBox1.Text = "";
+            en_in_textBox2.Text = "";
         }
-        private void in_button_Click(object sender, EventArgs e)
-        {
-            bool result1 = Regex.IsMatch(in_textBox1.Text, @"^[a-zA-Z]+$");
-            bool result2 = Regex.IsMatch(in_textBox1.Text, @"^[a-zA-Z]+$");
 
-            if (in_textBox1.Text == "")
+        // 복호화 하기 버튼
+        private void de_btn_Click(object sender, EventArgs e)
+        {
+            // 화면 전환
+            start.Visible = false;
+            en_input.Visible = false;
+            de_input.Visible = true;
+            en_output.Visible = false;
+            de_output.Visible = false;
+
+            de_in_textBox1.Text = "";
+            de_in_textBox2.Text = "";
+        }
+        
+        private void en_in_button_Click(object sender, EventArgs e)
+        {
+            bool result1 = Regex.IsMatch(en_in_textBox1.Text.Replace(" ", ""), @"^[a-zA-Z]+$");
+            bool result2 = Regex.IsMatch(en_in_textBox2.Text.Replace(" ", ""), @"^[a-zA-Z]+$");
+
+            if (en_in_textBox1.Text == "")
             {
-                MessageBox.Show("암호문이 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("암호키가 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!result1)
+            {
+                MessageBox.Show("1영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (en_in_textBox2.Text == "")
+            {
+                MessageBox.Show("평문이 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!result2)
+            {
+                MessageBox.Show("2영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                // 화면 전환
+                en_input.Visible = false;
+                en_output.Visible = true;
+
+                // 암호화에 필요한 정보 저장하기
+                String ciphertext = en_in_textBox1.Text;    // 암호키
+                String plaintext = en_in_textBox2.Text;     // 평문
+
+                ciphertext = ciphertext.ToLower();
+                plaintext = plaintext.ToLower();
+
+                // 암호화 하기
+                cipher.ci.Encryption(ciphertext, plaintext);
+
+                // ZCheck 문자열 저장하기 (암호문 zCheck)
+                StreamWriter sw = File.AppendText("encryption.txt");
+                sw.WriteLine(cipher.ci.encryption + " " + cipher.ci.zCheck);
+                sw.Close();
+
+                // 암호화 된 값 불러오기
+                en_out_cipher.Text = ciphertext;
+                en_out_encryptionTrim.Text = cipher.ci.encryption_trim;
+                en_out_encryption.Text = cipher.ci.encryption;
+            }
+        }
+
+        private void de_in_button_Click(object sender, EventArgs e)
+        {
+            bool result1 = Regex.IsMatch(de_in_textBox1.Text.Replace(" ", ""), @"^[a-zA-Z]+$");
+            bool result2 = Regex.IsMatch(de_in_textBox2.Text.Replace(" ", ""), @"^[a-zA-Z]+$");
+
+            if (de_in_textBox1.Text == "")
+            {
+                MessageBox.Show("암호키가 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!result1)
             {
                 MessageBox.Show("영문자만 입력해 주세요.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (in_textBox2.Text == "")
+            else if (de_in_textBox2.Text == "")
             {
                 MessageBox.Show("복호문이 입력되지 않았습니다.", "3106", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -56,79 +124,108 @@ namespace _3106
             else
             {
                 // 화면 전환
-                start.Visible = false;
-                input.Visible = false;
-                output.Visible = true;
+                de_input.Visible = false;
+                de_output.Visible = true;
 
-                // 암호화에 필요한 정보 저장하기
-                String ciphertext = in_textBox1.Text;
-                String plaintext = in_textBox2.Text;
+                // 복호화에 필요한 정보 저장하기
+                String ciphertext = de_in_textBox1.Text;    // 암호키
+                String encryptiontext = de_in_textBox2.Text;     // 평문
 
                 ciphertext = ciphertext.ToLower();
-                plaintext = plaintext.ToLower();
+                encryptiontext = encryptiontext.ToLower();
+
+                // ZCheck 문자열 가져오기
+
 
                 // 암호화 하기
-                cipher.ci.getCipher(ciphertext, plaintext);
+                cipher.ci.Decryption(ciphertext, encryptiontext);
 
                 // 암호화 된 값 불러오기
-                out_cipher.Text = cipher.ci.encryption_trim;
-                out_plain.Text = cipher.ci.decryption;
+                de_cipher.Text = ciphertext;
+                de_plain.Text = cipher.ci.decryption;
             }
-            
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            // 화면 전환
-            start.Visible = true;
-            input.Visible = false;
-            output.Visible = false;
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        
+        private void panel1_Paint(object sender, PaintEventArgs e)  // 메인 화면
         {
             // GUI setting
             start.Visible = true;
             
             title.Left = (this.ClientSize.Width - title.Width) / 2;
-            title.Top = ((this.ClientSize.Height - title.Height) / 2) - 50;
+            title.Top = ((this.ClientSize.Height - title.Height) / 2) - 100;
 
-            button.Left = (this.ClientSize.Width - button.Width) / 2;
-            button.Top = ((this.ClientSize.Height - button.Height) / 2) + 50;
+            en_btn.Left = (this.ClientSize.Width - en_btn.Width) / 2;
+            en_btn.Top = ((this.ClientSize.Height - en_btn.Height) / 2) + 10;
+
+            de_btn.Left = (this.ClientSize.Width - en_btn.Width) / 2;
+            de_btn.Top = ((this.ClientSize.Height - en_btn.Height) / 2) + 100;
 
             //버튼 테두리 없애기
-            button.TabStop = false;
-            button.FlatStyle = FlatStyle.Flat;
-            button.FlatAppearance.BorderSize = 0;
+            en_btn.TabStop = false;
+            en_btn.FlatStyle = FlatStyle.Flat;
+            en_btn.FlatAppearance.BorderSize = 0;
+
+            de_btn.TabStop = false;
+            de_btn.FlatStyle = FlatStyle.Flat;
+            de_btn.FlatAppearance.BorderSize = 0;
 
         }
-        private void input_Paint(object sender, PaintEventArgs e)
+
+        private void en_input_Paint(object sender, PaintEventArgs e)
         {
             // GUI setting
-            in_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
-            in_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
+            en_in_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
+            en_in_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
 
-            in_label1.Left = ((this.ClientSize.Width - title.Width) / 2 ) + 70;
-            in_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 5;
+            en_in_label1.Left = ((this.ClientSize.Width - title.Width) / 2 ) + 70;
+            en_in_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 5;
 
-            in_textBox1.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
-            in_textBox1.Top = ((this.ClientSize.Height - title.Height) / 2) - 10;
+            en_in_textBox1.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
+            en_in_textBox1.Top = ((this.ClientSize.Height - title.Height) / 2) - 10;
 
-            in_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 70;
-            in_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 40;
+            en_in_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 70;
+            en_in_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 40;
 
-            in_textBox2.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
-            in_textBox2.Top = ((this.ClientSize.Height - title.Height) / 2) + 35;
+            en_in_textBox2.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
+            en_in_textBox2.Top = ((this.ClientSize.Height - title.Height) / 2) + 35;
 
-            in_button.Left = ((this.ClientSize.Width - button.Width) / 2) + 15;
-            in_button.Top = ((this.ClientSize.Height - button.Height) / 2) + 120;
+            en_in_button.Left = ((this.ClientSize.Width - en_btn.Width) / 2) + 15;
+            en_in_button.Top = ((this.ClientSize.Height - en_btn.Height) / 2) + 120;
 
             //버튼 테두리 없애기
-            in_button.TabStop = false;
-            in_button.FlatStyle = FlatStyle.Flat;
-            in_button.FlatAppearance.BorderSize = 0;
+            en_in_button.TabStop = false;
+            en_in_button.FlatStyle = FlatStyle.Flat;
+            en_in_button.FlatAppearance.BorderSize = 0;
         }
-        private void output_Paint(object sender, PaintEventArgs e)
+
+        private void de_input_Paint(object sender, PaintEventArgs e)
+        {
+            // GUI setting
+            de_in_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
+            de_in_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
+
+            de_in_label1.Left = ((this.ClientSize.Width - title.Width) / 2) + 70;
+            de_in_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 5;
+
+            de_in_textBox1.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
+            de_in_textBox1.Top = ((this.ClientSize.Height - title.Height) / 2) - 10;
+
+            de_in_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 70;
+            de_in_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 40;
+
+            de_in_textBox2.Left = ((this.ClientSize.Width - title.Width) / 2) + 200;
+            de_in_textBox2.Top = ((this.ClientSize.Height - title.Height) / 2) + 35;
+
+            de_in_button.Left = ((this.ClientSize.Width - en_btn.Width) / 2) + 15;
+            de_in_button.Top = ((this.ClientSize.Height - en_btn.Height) / 2) + 120;
+
+            //버튼 테두리 없애기
+            de_in_button.TabStop = false;
+            de_in_button.FlatStyle = FlatStyle.Flat;
+            de_in_button.FlatAppearance.BorderSize = 0;
+        }
+
+        private void en_output_Paint(object sender, PaintEventArgs e)
         {
             // GUI setting
             subtext.Left = ((this.ClientSize.Width - title.Width) / 2) - 50;
@@ -137,31 +234,32 @@ namespace _3106
             tableLayoutPanel.Left = ((this.ClientSize.Width - title.Width) / 2) - 50;
             tableLayoutPanel.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
 
-            out_label1.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
-            out_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            en_out_label1.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            en_out_label1.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
+            en_out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
+            en_out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 120;
+            en_out_cipher.MaximumSize = new Size(170, 0);
+            en_out_cipher.AutoSize = true;
 
-            out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
-            out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            en_out_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            en_out_label2.Top = ((this.ClientSize.Height - title.Height) / 2) - 50;
+            en_out_encryptionTrim.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
+            en_out_encryptionTrim.Top = ((this.ClientSize.Height - title.Height) / 2) - 50;
+            en_out_encryptionTrim.MaximumSize = new Size(170, 0);
+            en_out_encryptionTrim.AutoSize = true;
 
-            out_cipher.MaximumSize = new Size(170, 0);
-            out_cipher.AutoSize = true;
+            en_out_label3.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            en_out_label3.Top = ((this.ClientSize.Height - title.Height) / 2) + 20;
+            en_out_encryption.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
+            en_out_encryption.Top = ((this.ClientSize.Height - title.Height) / 2) + 15;
 
-            out_label2.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
-            out_label2.Top = ((this.ClientSize.Height - title.Height) / 2) + 20;
-
-            out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 430;
-            out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 20;
-
-            out_plain.MaximumSize = new Size(170, 0);
-            out_plain.AutoSize = true;
-
-            out_button.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
-            out_button.Top = ((this.ClientSize.Height - title.Height) / 2) + 100;
+            en_out_button.Left = ((this.ClientSize.Width - title.Width) / 2) + 350;
+            en_out_button.Top = ((this.ClientSize.Height - title.Height) / 2) + 100;
 
             //버튼 테두리 없애기
-            out_button.TabStop = false;
-            out_button.FlatStyle = FlatStyle.Flat;
-            out_button.FlatAppearance.BorderSize = 0;
+            en_out_button.TabStop = false;
+            en_out_button.FlatStyle = FlatStyle.Flat;
+            en_out_button.FlatAppearance.BorderSize = 0;
 
             //label1.Text = ?; ~ label25.Text = ?;
             label1.Text = cipher.alpha[0, 0];
@@ -195,12 +293,69 @@ namespace _3106
             label25.Text = cipher.alpha[4, 4];
 
         }
-        private void button1_Click_2(object sender, EventArgs e)
+
+        private void de_out_paint(object sender, PaintEventArgs e)
+        {
+            // GUI setting
+            de_out_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 185;
+            de_out_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 140;
+
+            de_out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 120;
+            de_out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            de_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 270;
+            de_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            de_cipher.MaximumSize = new Size(170, 0);
+            de_cipher.AutoSize = true;
+
+            de_out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 120;
+            de_out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
+            de_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 270;
+            de_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
+            de_plain.MaximumSize = new Size(170, 0);
+            de_plain.AutoSize = true;
+
+
+            //버튼 테두리 없애기
+            de_outbtn.TabStop = false;
+            de_outbtn.FlatStyle = FlatStyle.Flat;
+            de_outbtn.FlatAppearance.BorderSize = 0;
+        }
+
+        // 홈 버튼
+        private void home1_Click(object sender, EventArgs e)
         {
             // 화면 전환
             start.Visible = true;
-            input.Visible = false;
-            output.Visible = false;
+            en_input.Visible = false;
+            de_input.Visible = false;
+            en_output.Visible = false;
+            de_output.Visible = false;
+        }
+        private void home2_Click(object sender, EventArgs e)
+        {
+            // 화면 전환
+            start.Visible = true;
+            en_input.Visible = false;
+            de_input.Visible = false;
+            en_output.Visible = false;
+            de_output.Visible = false;
+
+        }
+        private void en_outbtn_Click(object sender, EventArgs e)
+        {
+            // 화면 전환
+            start.Visible = true;
+            en_input.Visible = false;
+            en_output.Visible = false;
+        }
+        private void de_outbtn_Click(object sender, EventArgs e)
+        {
+            // 화면 전환
+            start.Visible = true;
+            en_input.Visible = false;
+            de_input.Visible = false;
+            en_output.Visible = false;
+            de_output.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e) {}
@@ -237,6 +392,68 @@ namespace _3106
         }
 
         private void out_plain_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void out_label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void out_label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label60_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label59_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

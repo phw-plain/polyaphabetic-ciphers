@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.input = new System.Windows.Forms.Panel();
-            this.home = new System.Windows.Forms.Button();
-            this.in_button = new System.Windows.Forms.Button();
-            this.in_label2 = new System.Windows.Forms.Label();
-            this.in_textBox2 = new System.Windows.Forms.TextBox();
-            this.in_textBox1 = new System.Windows.Forms.TextBox();
-            this.in_label1 = new System.Windows.Forms.Label();
-            this.in_title = new System.Windows.Forms.Label();
-            this.output = new System.Windows.Forms.Panel();
-            this.out_plain = new System.Windows.Forms.Label();
-            this.out_label2 = new System.Windows.Forms.Label();
-            this.out_cipher = new System.Windows.Forms.Label();
-            this.out_label1 = new System.Windows.Forms.Label();
-            this.out_button = new System.Windows.Forms.Button();
+            this.en_input = new System.Windows.Forms.Panel();
+            this.home1 = new System.Windows.Forms.Button();
+            this.en_in_button = new System.Windows.Forms.Button();
+            this.en_in_label2 = new System.Windows.Forms.Label();
+            this.en_in_textBox2 = new System.Windows.Forms.TextBox();
+            this.en_in_textBox1 = new System.Windows.Forms.TextBox();
+            this.en_in_label1 = new System.Windows.Forms.Label();
+            this.en_in_title = new System.Windows.Forms.Label();
+            this.en_output = new System.Windows.Forms.Panel();
+            this.en_out_label3 = new System.Windows.Forms.Label();
+            this.en_out_encryptionTrim = new System.Windows.Forms.Label();
+            this.en_out_label2 = new System.Windows.Forms.Label();
+            this.en_out_cipher = new System.Windows.Forms.Label();
+            this.en_out_label1 = new System.Windows.Forms.Label();
+            this.en_out_button = new System.Windows.Forms.Button();
             this.subtext = new System.Windows.Forms.Label();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
@@ -71,173 +72,206 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.start = new System.Windows.Forms.Panel();
+            this.de_btn = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
-            this.button = new System.Windows.Forms.Button();
-            this.input.SuspendLayout();
-            this.output.SuspendLayout();
+            this.en_btn = new System.Windows.Forms.Button();
+            this.de_input = new System.Windows.Forms.Panel();
+            this.home2 = new System.Windows.Forms.Button();
+            this.de_in_button = new System.Windows.Forms.Button();
+            this.de_in_label2 = new System.Windows.Forms.Label();
+            this.de_in_textBox2 = new System.Windows.Forms.TextBox();
+            this.de_in_textBox1 = new System.Windows.Forms.TextBox();
+            this.de_in_label1 = new System.Windows.Forms.Label();
+            this.de_in_title = new System.Windows.Forms.Label();
+            this.de_output = new System.Windows.Forms.Panel();
+            this.de_out_title = new System.Windows.Forms.Label();
+            this.de_plain = new System.Windows.Forms.Label();
+            this.de_out_plain = new System.Windows.Forms.Label();
+            this.de_cipher = new System.Windows.Forms.Label();
+            this.de_out_cipher = new System.Windows.Forms.Label();
+            this.de_outbtn = new System.Windows.Forms.Button();
+            this.en_out_encryption = new System.Windows.Forms.TextBox();
+            this.en_input.SuspendLayout();
+            this.en_output.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.start.SuspendLayout();
+            this.de_input.SuspendLayout();
+            this.de_output.SuspendLayout();
             this.SuspendLayout();
             // 
-            // input
+            // en_input
             // 
-            this.input.BackColor = System.Drawing.Color.White;
-            this.input.Controls.Add(this.home);
-            this.input.Controls.Add(this.in_button);
-            this.input.Controls.Add(this.in_label2);
-            this.input.Controls.Add(this.in_textBox2);
-            this.input.Controls.Add(this.in_textBox1);
-            this.input.Controls.Add(this.in_label1);
-            this.input.Controls.Add(this.in_title);
-            this.input.Location = new System.Drawing.Point(0, 0);
-            this.input.Name = "input";
-            this.input.Size = new System.Drawing.Size(900, 600);
-            this.input.TabIndex = 2;
-            this.input.Visible = false;
-            this.input.Paint += new System.Windows.Forms.PaintEventHandler(this.input_Paint);
+            this.en_input.BackColor = System.Drawing.Color.White;
+            this.en_input.Controls.Add(this.home1);
+            this.en_input.Controls.Add(this.en_in_button);
+            this.en_input.Controls.Add(this.en_in_label2);
+            this.en_input.Controls.Add(this.en_in_textBox2);
+            this.en_input.Controls.Add(this.en_in_textBox1);
+            this.en_input.Controls.Add(this.en_in_label1);
+            this.en_input.Controls.Add(this.en_in_title);
+            this.en_input.Location = new System.Drawing.Point(0, 0);
+            this.en_input.Name = "en_input";
+            this.en_input.Size = new System.Drawing.Size(900, 600);
+            this.en_input.TabIndex = 2;
+            this.en_input.Visible = false;
+            this.en_input.Paint += new System.Windows.Forms.PaintEventHandler(this.en_input_Paint);
             // 
-            // home
+            // home1
             // 
-            this.home.Location = new System.Drawing.Point(775, 496);
-            this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(75, 23);
-            this.home.TabIndex = 13;
-            this.home.Text = "돌아가기";
-            this.home.UseVisualStyleBackColor = true;
-            this.home.Click += new System.EventHandler(this.button1_Click_2);
+            this.home1.Location = new System.Drawing.Point(775, 496);
+            this.home1.Name = "home1";
+            this.home1.Size = new System.Drawing.Size(75, 23);
+            this.home1.TabIndex = 13;
+            this.home1.Text = "돌아가기";
+            this.home1.UseVisualStyleBackColor = true;
+            this.home1.Click += new System.EventHandler(this.home1_Click);
             // 
-            // in_button
+            // en_in_button
             // 
-            this.in_button.BackColor = System.Drawing.SystemColors.Window;
-            this.in_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("in_button.BackgroundImage")));
-            this.in_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.in_button.Cursor = System.Windows.Forms.Cursors.Default;
-            this.in_button.FlatAppearance.BorderSize = 0;
-            this.in_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.in_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.in_button.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold);
-            this.in_button.Location = new System.Drawing.Point(318, 374);
-            this.in_button.Name = "in_button";
-            this.in_button.Size = new System.Drawing.Size(259, 78);
-            this.in_button.TabIndex = 11;
-            this.in_button.UseVisualStyleBackColor = false;
-            this.in_button.Click += new System.EventHandler(this.in_button_Click);
+            this.en_in_button.BackColor = System.Drawing.SystemColors.Window;
+            this.en_in_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("en_in_button.BackgroundImage")));
+            this.en_in_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.en_in_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.en_in_button.FlatAppearance.BorderSize = 0;
+            this.en_in_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.en_in_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.en_in_button.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold);
+            this.en_in_button.Location = new System.Drawing.Point(318, 374);
+            this.en_in_button.Name = "en_in_button";
+            this.en_in_button.Size = new System.Drawing.Size(259, 78);
+            this.en_in_button.TabIndex = 11;
+            this.en_in_button.UseVisualStyleBackColor = false;
+            this.en_in_button.Click += new System.EventHandler(this.en_in_button_Click);
             // 
-            // in_label2
+            // en_in_label2
             // 
-            this.in_label2.AutoSize = true;
-            this.in_label2.Location = new System.Drawing.Point(200, 289);
-            this.in_label2.Name = "in_label2";
-            this.in_label2.Size = new System.Drawing.Size(37, 15);
-            this.in_label2.TabIndex = 9;
-            this.in_label2.Text = "평문";
+            this.en_in_label2.AutoSize = true;
+            this.en_in_label2.Location = new System.Drawing.Point(200, 289);
+            this.en_in_label2.Name = "en_in_label2";
+            this.en_in_label2.Size = new System.Drawing.Size(37, 15);
+            this.en_in_label2.TabIndex = 9;
+            this.en_in_label2.Text = "평문";
             // 
-            // in_textBox2
+            // en_in_textBox2
             // 
-            this.in_textBox2.Location = new System.Drawing.Point(414, 289);
-            this.in_textBox2.Name = "in_textBox2";
-            this.in_textBox2.Size = new System.Drawing.Size(281, 25);
-            this.in_textBox2.TabIndex = 8;
-            this.in_textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.en_in_textBox2.Location = new System.Drawing.Point(414, 289);
+            this.en_in_textBox2.Name = "en_in_textBox2";
+            this.en_in_textBox2.Size = new System.Drawing.Size(281, 25);
+            this.en_in_textBox2.TabIndex = 8;
+            this.en_in_textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // in_textBox1
+            // en_in_textBox1
             // 
-            this.in_textBox1.Location = new System.Drawing.Point(414, 240);
-            this.in_textBox1.Name = "in_textBox1";
-            this.in_textBox1.Size = new System.Drawing.Size(281, 25);
-            this.in_textBox1.TabIndex = 7;
+            this.en_in_textBox1.Location = new System.Drawing.Point(414, 240);
+            this.en_in_textBox1.Name = "en_in_textBox1";
+            this.en_in_textBox1.Size = new System.Drawing.Size(281, 25);
+            this.en_in_textBox1.TabIndex = 7;
             // 
-            // in_label1
+            // en_in_label1
             // 
-            this.in_label1.AutoSize = true;
-            this.in_label1.Location = new System.Drawing.Point(200, 250);
-            this.in_label1.Name = "in_label1";
-            this.in_label1.Size = new System.Drawing.Size(52, 15);
-            this.in_label1.TabIndex = 6;
-            this.in_label1.Text = "암호키";
-            this.in_label1.Click += new System.EventHandler(this.in_label1_Click);
+            this.en_in_label1.AutoSize = true;
+            this.en_in_label1.Location = new System.Drawing.Point(200, 250);
+            this.en_in_label1.Name = "en_in_label1";
+            this.en_in_label1.Size = new System.Drawing.Size(52, 15);
+            this.en_in_label1.TabIndex = 6;
+            this.en_in_label1.Text = "암호키";
+            this.en_in_label1.Click += new System.EventHandler(this.in_label1_Click);
             // 
-            // in_title
+            // en_in_title
             // 
-            this.in_title.AutoSize = true;
-            this.in_title.BackColor = System.Drawing.Color.Transparent;
-            this.in_title.Font = new System.Drawing.Font("HY견고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.in_title.Location = new System.Drawing.Point(235, 106);
-            this.in_title.Name = "in_title";
-            this.in_title.Size = new System.Drawing.Size(428, 40);
-            this.in_title.TabIndex = 10;
-            this.in_title.Text = "다중 문자 치환 암호화";
-            this.in_title.Click += new System.EventHandler(this.in_title_Click);
+            this.en_in_title.AutoSize = true;
+            this.en_in_title.BackColor = System.Drawing.Color.Transparent;
+            this.en_in_title.Font = new System.Drawing.Font("HY견고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.en_in_title.Location = new System.Drawing.Point(235, 106);
+            this.en_in_title.Name = "en_in_title";
+            this.en_in_title.Size = new System.Drawing.Size(428, 40);
+            this.en_in_title.TabIndex = 10;
+            this.en_in_title.Text = "다중 문자 치환 암호화";
+            this.en_in_title.Click += new System.EventHandler(this.in_title_Click);
             // 
-            // output
+            // en_output
             // 
-            this.output.BackColor = System.Drawing.Color.White;
-            this.output.Controls.Add(this.out_plain);
-            this.output.Controls.Add(this.out_label2);
-            this.output.Controls.Add(this.out_cipher);
-            this.output.Controls.Add(this.out_label1);
-            this.output.Controls.Add(this.out_button);
-            this.output.Controls.Add(this.subtext);
-            this.output.Controls.Add(this.tableLayoutPanel);
-            this.output.Location = new System.Drawing.Point(0, 0);
-            this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(900, 600);
-            this.output.TabIndex = 0;
-            this.output.Paint += new System.Windows.Forms.PaintEventHandler(this.output_Paint);
+            this.en_output.BackColor = System.Drawing.Color.White;
+            this.en_output.Controls.Add(this.en_out_encryption);
+            this.en_output.Controls.Add(this.en_out_label3);
+            this.en_output.Controls.Add(this.en_out_encryptionTrim);
+            this.en_output.Controls.Add(this.en_out_label2);
+            this.en_output.Controls.Add(this.en_out_cipher);
+            this.en_output.Controls.Add(this.en_out_label1);
+            this.en_output.Controls.Add(this.en_out_button);
+            this.en_output.Controls.Add(this.subtext);
+            this.en_output.Controls.Add(this.tableLayoutPanel);
+            this.en_output.Location = new System.Drawing.Point(0, 0);
+            this.en_output.Name = "en_output";
+            this.en_output.Size = new System.Drawing.Size(900, 600);
+            this.en_output.TabIndex = 0;
+            this.en_output.Paint += new System.Windows.Forms.PaintEventHandler(this.en_output_Paint);
             // 
-            // out_plain
+            // en_out_label3
             // 
-            this.out_plain.AutoSize = true;
-            this.out_plain.Location = new System.Drawing.Point(599, 268);
-            this.out_plain.Name = "out_plain";
-            this.out_plain.Size = new System.Drawing.Size(55, 15);
-            this.out_plain.TabIndex = 6;
-            this.out_plain.Text = "ABCDE";
-            this.out_plain.Click += new System.EventHandler(this.out_plain_Click);
+            this.en_out_label3.AutoSize = true;
+            this.en_out_label3.Location = new System.Drawing.Point(508, 228);
+            this.en_out_label3.Name = "en_out_label3";
+            this.en_out_label3.Size = new System.Drawing.Size(72, 15);
+            this.en_out_label3.TabIndex = 7;
+            this.en_out_label3.Text = "공백 제거";
+            this.en_out_label3.Click += new System.EventHandler(this.label60_Click);
             // 
-            // out_label2
+            // en_out_encryptionTrim
             // 
-            this.out_label2.AutoSize = true;
-            this.out_label2.Location = new System.Drawing.Point(508, 268);
-            this.out_label2.Name = "out_label2";
-            this.out_label2.Size = new System.Drawing.Size(52, 15);
-            this.out_label2.TabIndex = 5;
-            this.out_label2.Text = "복호문";
+            this.en_out_encryptionTrim.AutoSize = true;
+            this.en_out_encryptionTrim.Location = new System.Drawing.Point(599, 171);
+            this.en_out_encryptionTrim.Name = "en_out_encryptionTrim";
+            this.en_out_encryptionTrim.Size = new System.Drawing.Size(65, 15);
+            this.en_out_encryptionTrim.TabIndex = 6;
+            this.en_out_encryptionTrim.Text = "AB CD E";
+            this.en_out_encryptionTrim.Click += new System.EventHandler(this.out_plain_Click);
             // 
-            // out_cipher
+            // en_out_label2
             // 
-            this.out_cipher.AutoSize = true;
-            this.out_cipher.Location = new System.Drawing.Point(599, 192);
-            this.out_cipher.Name = "out_cipher";
-            this.out_cipher.Size = new System.Drawing.Size(55, 15);
-            this.out_cipher.TabIndex = 4;
-            this.out_cipher.Text = "ABCDE";
+            this.en_out_label2.AutoSize = true;
+            this.en_out_label2.Location = new System.Drawing.Point(508, 171);
+            this.en_out_label2.Name = "en_out_label2";
+            this.en_out_label2.Size = new System.Drawing.Size(52, 15);
+            this.en_out_label2.TabIndex = 5;
+            this.en_out_label2.Text = "암호문";
+            this.en_out_label2.Click += new System.EventHandler(this.out_label2_Click);
             // 
-            // out_label1
+            // en_out_cipher
             // 
-            this.out_label1.AutoSize = true;
-            this.out_label1.Location = new System.Drawing.Point(508, 192);
-            this.out_label1.Name = "out_label1";
-            this.out_label1.Size = new System.Drawing.Size(52, 15);
-            this.out_label1.TabIndex = 3;
-            this.out_label1.Text = "암호문";
+            this.en_out_cipher.AutoSize = true;
+            this.en_out_cipher.Location = new System.Drawing.Point(599, 106);
+            this.en_out_cipher.Name = "en_out_cipher";
+            this.en_out_cipher.Size = new System.Drawing.Size(55, 15);
+            this.en_out_cipher.TabIndex = 4;
+            this.en_out_cipher.Text = "ABCDE";
             // 
-            // out_button
+            // en_out_label1
             // 
-            this.out_button.BackColor = System.Drawing.SystemColors.Window;
-            this.out_button.BackgroundImage = global::_3106.Properties.Resources.btnStart;
-            this.out_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.out_button.Cursor = System.Windows.Forms.Cursors.Default;
-            this.out_button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.out_button.FlatAppearance.BorderSize = 0;
-            this.out_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.out_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.out_button.Location = new System.Drawing.Point(511, 359);
-            this.out_button.Name = "out_button";
-            this.out_button.Size = new System.Drawing.Size(232, 78);
-            this.out_button.TabIndex = 2;
-            this.out_button.UseVisualStyleBackColor = false;
-            this.out_button.Click += new System.EventHandler(this.button1_Click_1);
+            this.en_out_label1.AutoSize = true;
+            this.en_out_label1.Location = new System.Drawing.Point(508, 106);
+            this.en_out_label1.Name = "en_out_label1";
+            this.en_out_label1.Size = new System.Drawing.Size(52, 15);
+            this.en_out_label1.TabIndex = 3;
+            this.en_out_label1.Text = "암호키";
+            this.en_out_label1.Click += new System.EventHandler(this.out_label1_Click);
+            // 
+            // en_out_button
+            // 
+            this.en_out_button.BackColor = System.Drawing.SystemColors.Window;
+            this.en_out_button.BackgroundImage = global::_3106.Properties.Resources.btnStart;
+            this.en_out_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.en_out_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.en_out_button.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.en_out_button.FlatAppearance.BorderSize = 0;
+            this.en_out_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.en_out_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.en_out_button.Location = new System.Drawing.Point(511, 359);
+            this.en_out_button.Name = "en_out_button";
+            this.en_out_button.Size = new System.Drawing.Size(232, 78);
+            this.en_out_button.TabIndex = 2;
+            this.en_out_button.UseVisualStyleBackColor = false;
+            this.en_out_button.Click += new System.EventHandler(this.en_outbtn_Click);
             // 
             // subtext
             // 
@@ -575,13 +609,30 @@
             // 
             this.start.BackgroundImage = global::_3106.Properties.Resources.main;
             this.start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.start.Controls.Add(this.de_btn);
             this.start.Controls.Add(this.title);
-            this.start.Controls.Add(this.button);
+            this.start.Controls.Add(this.en_btn);
             this.start.Location = new System.Drawing.Point(0, 0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(900, 600);
             this.start.TabIndex = 2;
             this.start.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // de_btn
+            // 
+            this.de_btn.BackColor = System.Drawing.Color.Transparent;
+            this.de_btn.BackgroundImage = global::_3106.Properties.Resources.btn2;
+            this.de_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.de_btn.FlatAppearance.BorderSize = 0;
+            this.de_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.de_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.de_btn.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_btn.Location = new System.Drawing.Point(311, 380);
+            this.de_btn.Name = "de_btn";
+            this.de_btn.Size = new System.Drawing.Size(266, 86);
+            this.de_btn.TabIndex = 2;
+            this.de_btn.UseVisualStyleBackColor = false;
+            this.de_btn.Click += new System.EventHandler(this.de_btn_Click);
             // 
             // title
             // 
@@ -598,21 +649,209 @@
             this.title.Text = "다중 문자 치환 암호화";
             this.title.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button
+            // en_btn
             // 
-            this.button.BackColor = System.Drawing.Color.Transparent;
-            this.button.BackgroundImage = global::_3106.Properties.Resources.btn1;
-            this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button.FlatAppearance.BorderSize = 0;
-            this.button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button.Location = new System.Drawing.Point(311, 319);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(266, 86);
-            this.button.TabIndex = 0;
-            this.button.UseVisualStyleBackColor = false;
-            this.button.Click += new System.EventHandler(this.button1_Click);
+            this.en_btn.BackColor = System.Drawing.Color.Transparent;
+            this.en_btn.BackgroundImage = global::_3106.Properties.Resources.btn1;
+            this.en_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.en_btn.FlatAppearance.BorderSize = 0;
+            this.en_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.en_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.en_btn.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.en_btn.Location = new System.Drawing.Point(311, 279);
+            this.en_btn.Name = "en_btn";
+            this.en_btn.Size = new System.Drawing.Size(266, 86);
+            this.en_btn.TabIndex = 0;
+            this.en_btn.UseVisualStyleBackColor = false;
+            this.en_btn.Click += new System.EventHandler(this.en_btn_Click);
+            // 
+            // de_input
+            // 
+            this.de_input.BackColor = System.Drawing.Color.White;
+            this.de_input.Controls.Add(this.home2);
+            this.de_input.Controls.Add(this.de_in_button);
+            this.de_input.Controls.Add(this.de_in_label2);
+            this.de_input.Controls.Add(this.de_in_textBox2);
+            this.de_input.Controls.Add(this.de_in_textBox1);
+            this.de_input.Controls.Add(this.de_in_label1);
+            this.de_input.Controls.Add(this.de_in_title);
+            this.de_input.Location = new System.Drawing.Point(0, 0);
+            this.de_input.Name = "de_input";
+            this.de_input.Size = new System.Drawing.Size(900, 600);
+            this.de_input.TabIndex = 14;
+            this.de_input.Visible = false;
+            this.de_input.Paint += new System.Windows.Forms.PaintEventHandler(this.de_input_Paint);
+            // 
+            // home2
+            // 
+            this.home2.Location = new System.Drawing.Point(775, 496);
+            this.home2.Name = "home2";
+            this.home2.Size = new System.Drawing.Size(75, 23);
+            this.home2.TabIndex = 13;
+            this.home2.Text = "돌아가기";
+            this.home2.UseVisualStyleBackColor = true;
+            this.home2.Click += new System.EventHandler(this.home2_Click);
+            // 
+            // de_in_button
+            // 
+            this.de_in_button.BackColor = System.Drawing.SystemColors.Window;
+            this.de_in_button.BackgroundImage = global::_3106.Properties.Resources.btn2;
+            this.de_in_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.de_in_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.de_in_button.FlatAppearance.BorderSize = 0;
+            this.de_in_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.de_in_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.de_in_button.Font = new System.Drawing.Font("돋움", 16.2F, System.Drawing.FontStyle.Bold);
+            this.de_in_button.Location = new System.Drawing.Point(318, 374);
+            this.de_in_button.Name = "de_in_button";
+            this.de_in_button.Size = new System.Drawing.Size(259, 78);
+            this.de_in_button.TabIndex = 11;
+            this.de_in_button.UseVisualStyleBackColor = false;
+            this.de_in_button.Click += new System.EventHandler(this.de_in_button_Click);
+            // 
+            // de_in_label2
+            // 
+            this.de_in_label2.AutoSize = true;
+            this.de_in_label2.Location = new System.Drawing.Point(200, 289);
+            this.de_in_label2.Name = "de_in_label2";
+            this.de_in_label2.Size = new System.Drawing.Size(52, 15);
+            this.de_in_label2.TabIndex = 9;
+            this.de_in_label2.Text = "암호문";
+            this.de_in_label2.Click += new System.EventHandler(this.label26_Click);
+            // 
+            // de_in_textBox2
+            // 
+            this.de_in_textBox2.Location = new System.Drawing.Point(414, 289);
+            this.de_in_textBox2.Name = "de_in_textBox2";
+            this.de_in_textBox2.Size = new System.Drawing.Size(281, 25);
+            this.de_in_textBox2.TabIndex = 8;
+            // 
+            // de_in_textBox1
+            // 
+            this.de_in_textBox1.Location = new System.Drawing.Point(414, 240);
+            this.de_in_textBox1.Name = "de_in_textBox1";
+            this.de_in_textBox1.Size = new System.Drawing.Size(281, 25);
+            this.de_in_textBox1.TabIndex = 7;
+            // 
+            // de_in_label1
+            // 
+            this.de_in_label1.AutoSize = true;
+            this.de_in_label1.Location = new System.Drawing.Point(200, 250);
+            this.de_in_label1.Name = "de_in_label1";
+            this.de_in_label1.Size = new System.Drawing.Size(52, 15);
+            this.de_in_label1.TabIndex = 6;
+            this.de_in_label1.Text = "암호키";
+            // 
+            // de_in_title
+            // 
+            this.de_in_title.AutoSize = true;
+            this.de_in_title.BackColor = System.Drawing.Color.Transparent;
+            this.de_in_title.Font = new System.Drawing.Font("HY견고딕", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_in_title.Location = new System.Drawing.Point(235, 106);
+            this.de_in_title.Name = "de_in_title";
+            this.de_in_title.Size = new System.Drawing.Size(428, 40);
+            this.de_in_title.TabIndex = 10;
+            this.de_in_title.Text = "다중 문자 치환 복호화";
+            this.de_in_title.Click += new System.EventHandler(this.label28_Click);
+            // 
+            // de_output
+            // 
+            this.de_output.BackColor = System.Drawing.Color.White;
+            this.de_output.Controls.Add(this.de_out_title);
+            this.de_output.Controls.Add(this.de_plain);
+            this.de_output.Controls.Add(this.de_out_plain);
+            this.de_output.Controls.Add(this.de_cipher);
+            this.de_output.Controls.Add(this.de_out_cipher);
+            this.de_output.Controls.Add(this.de_outbtn);
+            this.de_output.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_output.Location = new System.Drawing.Point(0, 0);
+            this.de_output.Name = "de_output";
+            this.de_output.Size = new System.Drawing.Size(900, 600);
+            this.de_output.TabIndex = 7;
+            this.de_output.Paint += new System.Windows.Forms.PaintEventHandler(this.de_out_paint);
+            // 
+            // de_out_title
+            // 
+            this.de_out_title.AutoSize = true;
+            this.de_out_title.Font = new System.Drawing.Font("HY견고딕", 20F);
+            this.de_out_title.Location = new System.Drawing.Point(351, 91);
+            this.de_out_title.Name = "de_out_title";
+            this.de_out_title.Size = new System.Drawing.Size(196, 34);
+            this.de_out_title.TabIndex = 7;
+            this.de_out_title.Text = "복호화 결과";
+            this.de_out_title.Click += new System.EventHandler(this.label26_Click_1);
+            // 
+            // de_plain
+            // 
+            this.de_plain.AutoSize = true;
+            this.de_plain.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_plain.Location = new System.Drawing.Point(501, 260);
+            this.de_plain.Name = "de_plain";
+            this.de_plain.Size = new System.Drawing.Size(546, 23);
+            this.de_plain.TabIndex = 6;
+            this.de_plain.Text = "ABCDEABCDEABCDEABCDEABCDEABCDEABCDEABCDE";
+            this.de_plain.Click += new System.EventHandler(this.label29_Click);
+            // 
+            // de_out_plain
+            // 
+            this.de_out_plain.AutoSize = true;
+            this.de_out_plain.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_out_plain.Location = new System.Drawing.Point(320, 260);
+            this.de_out_plain.Name = "de_out_plain";
+            this.de_out_plain.Size = new System.Drawing.Size(79, 23);
+            this.de_out_plain.TabIndex = 5;
+            this.de_out_plain.Text = "복호문";
+            this.de_out_plain.Click += new System.EventHandler(this.label30_Click);
+            // 
+            // de_cipher
+            // 
+            this.de_cipher.AutoSize = true;
+            this.de_cipher.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_cipher.Location = new System.Drawing.Point(501, 184);
+            this.de_cipher.Name = "de_cipher";
+            this.de_cipher.Size = new System.Drawing.Size(77, 23);
+            this.de_cipher.TabIndex = 4;
+            this.de_cipher.Text = "ABCDE";
+            this.de_cipher.Click += new System.EventHandler(this.label31_Click);
+            // 
+            // de_out_cipher
+            // 
+            this.de_out_cipher.AutoSize = true;
+            this.de_out_cipher.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_out_cipher.Location = new System.Drawing.Point(320, 184);
+            this.de_out_cipher.Name = "de_out_cipher";
+            this.de_out_cipher.Size = new System.Drawing.Size(79, 23);
+            this.de_out_cipher.TabIndex = 3;
+            this.de_out_cipher.Text = "암호키";
+            this.de_out_cipher.Click += new System.EventHandler(this.label32_Click);
+            // 
+            // de_outbtn
+            // 
+            this.de_outbtn.BackColor = System.Drawing.SystemColors.Window;
+            this.de_outbtn.BackgroundImage = global::_3106.Properties.Resources.btnStart;
+            this.de_outbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.de_outbtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.de_outbtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.de_outbtn.FlatAppearance.BorderSize = 0;
+            this.de_outbtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.de_outbtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.de_outbtn.Location = new System.Drawing.Point(336, 380);
+            this.de_outbtn.Name = "de_outbtn";
+            this.de_outbtn.Size = new System.Drawing.Size(232, 78);
+            this.de_outbtn.TabIndex = 2;
+            this.de_outbtn.UseVisualStyleBackColor = false;
+            this.de_outbtn.Click += new System.EventHandler(this.de_outbtn_Click);
+            // 
+            // en_out_encryption
+            // 
+            this.en_out_encryption.Location = new System.Drawing.Point(602, 232);
+            this.en_out_encryption.Multiline = true;
+            this.en_out_encryption.Name = "en_out_encryption";
+            this.en_out_encryption.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.en_out_encryption.Size = new System.Drawing.Size(141, 51);
+            this.en_out_encryption.TabIndex = 16;
+            this.en_out_encryption.Text = "ABCDEABCEDABCDEABCED";
+            this.en_out_encryption.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // main
             // 
@@ -621,36 +860,41 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 553);
             this.Controls.Add(this.start);
-            this.Controls.Add(this.output);
-            this.Controls.Add(this.input);
+            this.Controls.Add(this.en_output);
+            this.Controls.Add(this.de_input);
+            this.Controls.Add(this.de_output);
+            this.Controls.Add(this.en_input);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
             this.Text = "3106";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.input.ResumeLayout(false);
-            this.input.PerformLayout();
-            this.output.ResumeLayout(false);
-            this.output.PerformLayout();
+            this.en_input.ResumeLayout(false);
+            this.en_input.PerformLayout();
+            this.en_output.ResumeLayout(false);
+            this.en_output.PerformLayout();
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.start.ResumeLayout(false);
             this.start.PerformLayout();
+            this.de_input.ResumeLayout(false);
+            this.de_input.PerformLayout();
+            this.de_output.ResumeLayout(false);
+            this.de_output.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.Button en_btn;
         private System.Windows.Forms.Panel start;
-        private System.Windows.Forms.Panel input;
-        private System.Windows.Forms.Panel output;
-        private System.Windows.Forms.Button in_button;
-        private System.Windows.Forms.Label in_title;
-        private System.Windows.Forms.Label in_label2;
-        private System.Windows.Forms.TextBox in_textBox2;
-        private System.Windows.Forms.TextBox in_textBox1;
-        private System.Windows.Forms.Label in_label1;
+        private System.Windows.Forms.Panel en_input;
+        private System.Windows.Forms.Panel en_output;
+        private System.Windows.Forms.Button en_in_button;
+        private System.Windows.Forms.Label en_in_label2;
+        private System.Windows.Forms.TextBox en_in_textBox2;
+        private System.Windows.Forms.TextBox en_in_textBox1;
+        private System.Windows.Forms.Label en_in_label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
@@ -678,13 +922,32 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label subtext;
-        private System.Windows.Forms.Label out_label2;
-        private System.Windows.Forms.Label out_cipher;
-        private System.Windows.Forms.Label out_label1;
-        private System.Windows.Forms.Button home;
-        public System.Windows.Forms.Button out_button;
+        private System.Windows.Forms.Label en_out_label2;
+        private System.Windows.Forms.Label en_out_cipher;
+        private System.Windows.Forms.Label en_out_label1;
+        private System.Windows.Forms.Button home1;
+        public System.Windows.Forms.Button en_out_button;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Label out_plain;
+        private System.Windows.Forms.Button de_btn;
+        private System.Windows.Forms.Panel de_input;
+        private System.Windows.Forms.Button home2;
+        private System.Windows.Forms.Button de_in_button;
+        private System.Windows.Forms.Label de_in_label2;
+        private System.Windows.Forms.TextBox de_in_textBox2;
+        private System.Windows.Forms.TextBox de_in_textBox1;
+        private System.Windows.Forms.Label de_in_title;
+        private System.Windows.Forms.Panel de_output;
+        private System.Windows.Forms.Label de_plain;
+        private System.Windows.Forms.Label de_out_plain;
+        private System.Windows.Forms.Label de_cipher;
+        private System.Windows.Forms.Label de_out_cipher;
+        public System.Windows.Forms.Button de_outbtn;
+        private System.Windows.Forms.Label en_out_label3;
+        private System.Windows.Forms.Label en_in_title;
+        private System.Windows.Forms.Label en_out_encryptionTrim;
+        private System.Windows.Forms.Label de_in_label1;
+        private System.Windows.Forms.Label de_out_title;
+        private System.Windows.Forms.TextBox en_out_encryption;
     }
 }
 
