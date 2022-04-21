@@ -21,6 +21,7 @@ namespace _3106
             this.MaximizeBox = false;
 
             InitializeComponent();
+            de_btn.FlatStyle = FlatStyle.Flat;
         }
 
         // 암호화 하기 버튼
@@ -139,11 +140,12 @@ namespace _3106
                 encryptiontext = encryptiontext.ToLower();
 
                 
-                // 암호화 하기
+                // 복호화 하기
                 cipher.ci.Decryption(ciphertext, encryptiontext);
 
-                // 암호화 된 값 불러오기
+                // 복호화 된 값 불러오기
                 de_cipher.Text = ciphertext;
+                de_encryption.Text = encryptiontext;
                 de_plain.Text = cipher.ci.decryption;
             }
         }
@@ -193,7 +195,6 @@ namespace _3106
             en_btn.FlatAppearance.BorderSize = 0;
 
             de_btn.TabStop = false;
-            de_btn.FlatStyle = FlatStyle.Flat;
             de_btn.FlatAppearance.BorderSize = 0;
 
         }
@@ -325,22 +326,31 @@ namespace _3106
         {
             // GUI setting
             de_out_title.Left = ((this.ClientSize.Width - title.Width) / 2) + 185;
-            de_out_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 140;
+            de_out_title.Top = ((this.ClientSize.Height - title.Height) / 2) - 160;
 
             de_out_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
-            de_out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            de_out_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 80;
             de_cipher.Left = ((this.ClientSize.Width - title.Width) / 2) + 240;
-            de_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 60;
+            de_cipher.Top = ((this.ClientSize.Height - title.Height) / 2) - 80;
             de_cipher.MaximumSize = new Size(200, 0);
             de_cipher.AutoSize = true;
 
+            de_out_encryption.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
+            de_out_encryption.Top = ((this.ClientSize.Height - title.Height) / 2) - 10;
+            de_encryption.Left = ((this.ClientSize.Width - title.Width) / 2) + 240;
+            de_encryption.Top = ((this.ClientSize.Height - title.Height) / 2) - 10;
+            de_encryption.MaximumSize = new Size(200, 0);
+            de_encryption.AutoSize = true;
+
             de_out_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 90;
-            de_out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
+            de_out_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 60;
             de_plain.Left = ((this.ClientSize.Width - title.Width) / 2) + 240;
-            de_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 10;
+            de_plain.Top = ((this.ClientSize.Height - title.Height) / 2) + 60;
             de_plain.MaximumSize = new Size(200, 0);
             de_plain.AutoSize = true;
 
+            de_outbtn.Left = ((this.ClientSize.Width - title.Width) / 2) + 165;
+            de_outbtn.Top = ((this.ClientSize.Height - title.Height) / 2) + 150;
 
             //버튼 테두리 없애기
             de_outbtn.TabStop = false;
@@ -373,7 +383,9 @@ namespace _3106
             // 화면 전환
             start.Visible = true;
             en_input.Visible = false;
+            de_input.Visible = false;
             en_output.Visible = false;
+            de_output.Visible = false;
         }
         private void de_outbtn_Click(object sender, EventArgs e)
         {
@@ -481,6 +493,11 @@ namespace _3106
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click_2(object sender, EventArgs e)
         {
 
         }

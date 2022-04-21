@@ -85,6 +85,8 @@
             this.de_in_label1 = new System.Windows.Forms.Label();
             this.de_in_title = new System.Windows.Forms.Label();
             this.de_output = new System.Windows.Forms.Panel();
+            this.de_out_encryption = new System.Windows.Forms.Label();
+            this.de_encryption = new System.Windows.Forms.Label();
             this.de_out_title = new System.Windows.Forms.Label();
             this.de_plain = new System.Windows.Forms.Label();
             this.de_out_plain = new System.Windows.Forms.Label();
@@ -240,9 +242,9 @@
             this.en_out_encryptionTrim.AutoSize = true;
             this.en_out_encryptionTrim.Location = new System.Drawing.Point(524, 137);
             this.en_out_encryptionTrim.Name = "en_out_encryptionTrim";
-            this.en_out_encryptionTrim.Size = new System.Drawing.Size(54, 12);
+            this.en_out_encryptionTrim.Size = new System.Drawing.Size(317, 12);
             this.en_out_encryptionTrim.TabIndex = 6;
-            this.en_out_encryptionTrim.Text = "AB CD E";
+            this.en_out_encryptionTrim.Text = "AB CD EF GH IJ KL MN OP AB CD EF GH IJ KL MN OP";
             this.en_out_encryptionTrim.Click += new System.EventHandler(this.out_plain_Click);
             // 
             // en_out_label2
@@ -785,6 +787,8 @@
             // de_output
             // 
             this.de_output.BackColor = System.Drawing.Color.White;
+            this.de_output.Controls.Add(this.de_out_encryption);
+            this.de_output.Controls.Add(this.de_encryption);
             this.de_output.Controls.Add(this.de_out_title);
             this.de_output.Controls.Add(this.de_plain);
             this.de_output.Controls.Add(this.de_out_plain);
@@ -798,6 +802,27 @@
             this.de_output.Size = new System.Drawing.Size(788, 480);
             this.de_output.TabIndex = 7;
             this.de_output.Paint += new System.Windows.Forms.PaintEventHandler(this.de_out_paint);
+            // 
+            // de_out_encryption
+            // 
+            this.de_out_encryption.AutoSize = true;
+            this.de_out_encryption.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_out_encryption.Location = new System.Drawing.Point(280, 177);
+            this.de_out_encryption.Name = "de_out_encryption";
+            this.de_out_encryption.Size = new System.Drawing.Size(66, 19);
+            this.de_out_encryption.TabIndex = 9;
+            this.de_out_encryption.Text = "암호문";
+            // 
+            // de_encryption
+            // 
+            this.de_encryption.AutoSize = true;
+            this.de_encryption.Font = new System.Drawing.Font("굴림", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.de_encryption.Location = new System.Drawing.Point(438, 177);
+            this.de_encryption.Name = "de_encryption";
+            this.de_encryption.Size = new System.Drawing.Size(465, 19);
+            this.de_encryption.TabIndex = 8;
+            this.de_encryption.Text = "ABCDEABCDEABCDEABCDEABCDEABCDEABCDEABCDE";
+            this.de_encryption.Click += new System.EventHandler(this.label26_Click_2);
             // 
             // de_out_title
             // 
@@ -878,11 +903,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(772, 442);
+            this.Controls.Add(this.de_output);
+            this.Controls.Add(this.en_input);
             this.Controls.Add(this.start);
             this.Controls.Add(this.en_output);
             this.Controls.Add(this.de_input);
-            this.Controls.Add(this.de_output);
-            this.Controls.Add(this.en_input);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "main";
@@ -968,6 +993,8 @@
         private System.Windows.Forms.Label de_in_label1;
         private System.Windows.Forms.Label de_out_title;
         private System.Windows.Forms.TextBox en_out_encryption;
+        private System.Windows.Forms.Label de_encryption;
+        private System.Windows.Forms.Label de_out_encryption;
     }
 }
 
